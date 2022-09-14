@@ -109,17 +109,32 @@
 // console.log(age1, age2, age3)
 // console.log(years.length - 1);
 
-const calcTip = (bill) => {
-    let tip;
-    if (bill >= 50 && bill <= 300) {
-      tip = 0.15 * bill;
-    } else {
-      tip = 0.2 * bill;
-    }
-    return tip;
+// const calcTip = (bill) => {
+//     let tip;
+//     if (bill >= 50 && bill <= 300) {
+//       tip = 0.15 * bill;
+//     } else {
+//       tip = 0.2 * bill;
+//     }
+//     return tip;
+// }
+
+// const bills = [125, 555, 44]
+// const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])]
+// const totals = [tips[0] + bills[0], tips[1] + bills[1], tips[2] + bills[2]]
+// // console.log(tips)
+// console.log(totals)
+
+const ogee = {
+    firstName: "Ogaga",
+    lastName: "Iyara",
+    age: 25,
+    job: "Software developer",
+    nationality: "Nigerian",
+    friends: ["Andre", "Micheal", "Faith"]
 }
 
-const bills = [125, 555, 44]
-const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])]
-console.log(tips)
-console.log(calcTip(44))
+const question = prompt('What would you like to know about Ogee?')
+console.log(ogee[question])
+
+console.log(`${ogee.firstName} has ${ogee.friends.length} friends and his bestfriend name is ${ogee.friends[1]}`)
