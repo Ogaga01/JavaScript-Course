@@ -154,28 +154,38 @@
 // console.log(`${ogee.firstName} has ${ogee.friends.length}
 //  friends and his bestfriend name is ${ogee.friends[1]}`)
 
-const mark = {
-    fullName: "Mark Miller",
-    mass: 78,
-    height: 1.69,
-    calcBMI: function () {
-        this.bmi = this.mass / (this.height ** 2)
-        return this.bmi
-    }
+// const mark = {
+//     fullName: "Mark Miller",
+//     mass: 78,
+//     height: 1.69,
+//     calcBMI: function () {
+//         this.bmi = this.mass / (this.height ** 2)
+//         return this.bmi
+//     }
+// }
+
+// const john = {
+//   fullName: "John Smith",
+//   mass: 92,
+//   height: 1.95,
+//   calcBMI: function () {
+//     this.bmi = this.mass / this.height ** 2;
+//     return this.bmi;
+//   },
+// };
+
+// mark.calcBMI()
+// john.calcBMI()
+
+// john.bmi > mark.bmi ? console.log(`John's BMI ${john.bmi} is higher than Mark's BMI ${mark.bmi}`) :
+//     console.log(`Mark's BMI ${mark.bmi} is higher than John's BMI ${john.bmi} `)
+const types = []
+
+const celp = ["Volta", "Realty", "Zebra", "maputo", ["Crown Center", "Robin Road", "Princess Drive"]]
+for (let i = 0; i < celp.length; i++){
+    console.log(i)
+    console.log(celp[i])
+
+    types.push(typeof (celp[i]))
+    console.log(types)
 }
-
-const john = {
-  fullName: "John Smith",
-  mass: 92,
-  height: 1.95,
-  calcBMI: function () {
-    this.bmi = this.mass / this.height ** 2;
-    return this.bmi;
-  },
-};
-
-mark.calcBMI()
-john.calcBMI()
-
-john.bmi > mark.bmi ? console.log(`John's BMI ${john.bmi} is higher than Mark's BMI ${mark.bmi}`) :
-    console.log(`Mark's BMI ${mark.bmi} is higher than John's BMI ${john.bmi} `)
