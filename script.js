@@ -128,13 +128,29 @@
 const ogee = {
     firstName: "Ogaga",
     lastName: "Iyara",
-    age: 25,
+    birthYear: 1997,
     job: "Software developer",
     nationality: "Nigerian",
-    friends: ["Andre", "Micheal", "Faith"]
+    friends: ["Andre", "Micheal", "Faith"],
+    hasDriversLicense: false,
+    calcAge: function () {
+        this.age = 2022 - this.birthYear
+        return this.age
+    }
 }
 
-const question = prompt('What would you like to know about Ogee?')
-console.log(ogee[question])
+ogee.calcAge()
 
-console.log(`${ogee.firstName} has ${ogee.friends.length} friends and his bestfriend name is ${ogee.friends[1]}`)
+console.log(ogee.age)
+
+
+
+console.log(`${ogee.firstName} is a ${ogee.age} year old ${ogee.job} and
+${ogee.hasDriversLicense ? 'he has a driver\'s license' : 'he has no driver\'s license'}`)
+
+// const question = prompt('What would you like to know about Ogee?')
+// console.log(ogee[question])
+
+// console.log(`${ogee.firstName} has ${ogee.friends.length}
+//  friends and his bestfriend name is ${ogee.friends[1]}`)
+
