@@ -46,24 +46,38 @@
 
 // yearUntilRetirement(1997, 2040, 2028)
 
-const avgKoalas = (score1, score2, score3) => {
-    const averageScore = (score1 + score2 + score3) / 3
-    return averageScore
+// const avgKoalas = (score1, score2, score3) => {
+//     const averageScore = (score1 + score2 + score3) / 3
+//     return averageScore
+// }
+
+// const avgDolphins = (score1, score2, score3) => {
+//   const averageScore = (score1 + score2 + score3) / 3;
+//   return averageScore;
+// };
+
+// const checkWinner = (scoreDolphins, scoreKoalas) => {
+//     scoreDolphins = avgDolphins(85, 54, 41)
+//     scoreKoalas = avgKoalas(23, 34, 27)
+//     if (scoreDolphins >= scoreKoalas * 2) {
+//         console.log (`Dolphins win ${scoreDolphins} vs ${scoreKoalas}`)
+//     } else if (scoreKoalas >= scoreDolphins * 2) {
+//         console.log(`Koalas win ${scoreKoalas} vs ${scoreDolphins}`)
+//     }else {console.log(`no one wins`)}
+// }
+
+// checkWinner()
+
+function calcAge(currentYear, birthYear) {
+  const age = currentYear - birthYear;
+  return `You are ${age} years old`;
 }
 
-const avgDolphins = (score1, score2, score3) => {
-  const averageScore = (score1 + score2 + score3) / 3;
-  return averageScore;
-};
+const years = [1990, 1847, 2005, 1987, 1614]
 
-const checkWinner = (scoreDolphins, scoreKoalas) => {
-    scoreDolphins = avgDolphins(85, 54, 41)
-    scoreKoalas = avgKoalas(23, 34, 27)
-    if (scoreDolphins >= scoreKoalas * 2) {
-        console.log (`Dolphins win ${scoreDolphins} vs ${scoreKoalas}`)
-    } else if (scoreKoalas >= scoreDolphins * 2) {
-        console.log(`Koalas win ${scoreKoalas} vs ${scoreDolphins}`)
-    }else {console.log(`no one wins`)}
-}
+const age1 = calcAge(2096, years[0])
+const age2 = calcAge(2037, years[years.length - 1]);
+const age3 = calcAge(2025, years[3])
 
-checkWinner()
+console.log(age1, age2, age3)
+console.log(years.length - 1);
