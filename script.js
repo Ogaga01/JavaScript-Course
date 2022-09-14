@@ -179,13 +179,23 @@
 
 // john.bmi > mark.bmi ? console.log(`John's BMI ${john.bmi} is higher than Mark's BMI ${mark.bmi}`) :
 //     console.log(`Mark's BMI ${mark.bmi} is higher than John's BMI ${john.bmi} `)
-const types = []
+// const types = []
 
-const celp = ["Volta", "Realty", "Zebra", "maputo", ["Crown Center", "Robin Road", "Princess Drive"]]
-for (let i = 0; i < celp.length; i++){
-    console.log(i)
-    console.log(celp[i])
+// const celp = ["Volta", "Realty", "Zebra", "maputo", ["Crown Center", "Robin Road", "Princess Drive"]]
+// for (let i = 0; i < celp.length; i++){
+//     console.log(i)
+//     console.log(celp[i])
 
-    types.push(typeof (celp[i]))
-    console.log(types)
+//     types.push(typeof (celp[i]))
+//     console.log(types)
+// }
+
+const birthYear = [1996, 1997, 1998, 2001, 2003]
+
+const age = []
+
+for (let i = 0; i < birthYear.length; i++){
+    age.push(2022 - birthYear[i])
 }
+
+console.log(age)
