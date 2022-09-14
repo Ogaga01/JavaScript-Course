@@ -179,7 +179,7 @@
 
 // john.bmi > mark.bmi ? console.log(`John's BMI ${john.bmi} is higher than Mark's BMI ${mark.bmi}`) :
 //     console.log(`Mark's BMI ${mark.bmi} is higher than John's BMI ${john.bmi} `)
-const types = []
+// const types = []
 
 // const celp = ["Volta", "Realty", "Zebra", "maputo", ["Crown Center", "Robin Road", "Princess Drive", "Relaxation Center", "Orange drive"]]
 // for (let i = 0; i < celp.length; i++){
@@ -190,12 +190,12 @@ const types = []
     
 // }
 
-const array1 = [68, 36, 101, 98, 46, 31, [40, 40, 76, 85, 63]]
-for (let i = 0; i < array1.length; i++) {
-    for (let j = 0; j < array1[6].length; j++){
-        console.log(array1[i] + array1[6][j])
-    }
-}
+// const array1 = [68, 36, 101, 98, 46, 31, [40, 40, 76, 85, 63]]
+// for (let i = 0; i < array1.length; i++) {
+//     for (let j = 0; j < array1[6].length; j++){
+//         console.log(array1[i] + array1[6][j])
+//     }
+// }
   
 
 // const birthYear = [1996, 1997, 1998, 2001, 2003]
@@ -207,3 +207,36 @@ for (let i = 0; i < array1.length; i++) {
 // }
 
 // console.log(age)
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52]
+const tips = []
+const totals = []
+const calcTip = (bill) => {
+  let tip;
+  if (bill >= 50 && bill <= 300) {
+    tip = 0.15 * bill;
+  } else {
+    tip = 0.2 * bill;
+  }
+  return tip;
+};
+
+for (let i = 0; i < bills.length; i++){
+    tips.push(calcTip(bills[i]))
+    totals.push(bills[i] + tips[i])
+}
+console.log(tips)
+console.log(totals)
+
+
+const calcAvg = function (array) {
+    let sum = 0;
+    for (let i = 0; i < array.length; i++){
+        sum += array[i]
+    }
+    return sum/array.length
+}
+
+console.log(calcAvg(bills))
+console.log(calcAvg(totals));
+console.log(calcAvg(tips));
