@@ -125,28 +125,28 @@
 // // console.log(tips)
 // console.log(totals)
 
-const ogee = {
-    firstName: "Ogaga",
-    lastName: "Iyara",
-    birthYear: 1997,
-    job: "Software developer",
-    nationality: "Nigerian",
-    friends: ["Andre", "Micheal", "Faith"],
-    hasDriversLicense: false,
-    calcAge: function () {
-        this.age = 2022 - this.birthYear
-        return this.age
-    }
-}
+// const ogee = {
+//     firstName: "Ogaga",
+//     lastName: "Iyara",
+//     birthYear: 1997,
+//     job: "Software developer",
+//     nationality: "Nigerian",
+//     friends: ["Andre", "Micheal", "Faith"],
+//     hasDriversLicense: false,
+//     calcAge: function () {
+//         this.age = 2022 - this.birthYear
+//         return this.age
+//     }
+// }
 
-ogee.calcAge()
+// ogee.calcAge()
 
-console.log(ogee.age)
+// console.log(ogee.age)
 
 
 
-console.log(`${ogee.firstName} is a ${ogee.age} year old ${ogee.job} and
-${ogee.hasDriversLicense ? 'he has a driver\'s license' : 'he has no driver\'s license'}`)
+// console.log(`${ogee.firstName} is a ${ogee.age} year old ${ogee.job} and
+// ${ogee.hasDriversLicense ? 'he has a driver\'s license' : 'he has no driver\'s license'}`)
 
 // const question = prompt('What would you like to know about Ogee?')
 // console.log(ogee[question])
@@ -154,3 +154,28 @@ ${ogee.hasDriversLicense ? 'he has a driver\'s license' : 'he has no driver\'s l
 // console.log(`${ogee.firstName} has ${ogee.friends.length}
 //  friends and his bestfriend name is ${ogee.friends[1]}`)
 
+const mark = {
+    fullName: "Mark Miller",
+    mass: 78,
+    height: 1.69,
+    calcBMI: function () {
+        this.bmi = this.mass / (this.height ** 2)
+        return this.bmi
+    }
+}
+
+const john = {
+  fullName: "John Smith",
+  mass: 92,
+  height: 1.95,
+  calcBMI: function () {
+    this.bmi = this.mass / this.height ** 2;
+    return this.bmi;
+  },
+};
+
+mark.calcBMI()
+john.calcBMI()
+
+john.bmi > mark.bmi ? console.log(`John's BMI ${john.bmi} is higher than Mark's BMI ${mark.bmi}`) :
+    console.log(`Mark's BMI ${mark.bmi} is higher than John's BMI ${john.bmi} `)
