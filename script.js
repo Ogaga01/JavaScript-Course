@@ -44,6 +44,33 @@
 //     }
 // }
 
+// const serviceYear = 25;
+// const retirementAge = 60;
+
+// const yearsLeft = (age, yearsServed) => {
+//   let yearsRemaining;
+//   if (yearsServed > serviceYear) {
+//     return `You should have retired ${yearsServed - serviceYear} years ago`;
+//   } else if (yearsServed < serviceYear) {
+//     if (age > retirementAge) {
+//       return `You should have retired ${age - retirementAge} years ago`;
+//     } else if (age === retirementAge) {
+//       return `You should retire this year`;
+//     } else if (
+//       age < retirementAge &&
+//       retirementAge - age <= serviceYear - yearsServed
+//     ) {
+//       yearsRemaining = retirementAge - age;
+//       return `You still have ${yearsRemaining} years left`;
+//     } else {
+//       yearsRemaining = serviceYear - yearsServed;
+//       return `You still have ${yearsRemaining} years left`;
+//     }
+//   } else {
+//     return `You should be retiring this year`;
+//   }
+// };
+
 // yearUntilRetirement(1997, 2040, 2028)
 
 // const avgKoalas = (score1, score2, score3) => {
@@ -68,16 +95,31 @@
 
 // checkWinner()
 
-function calcAge(currentYear, birthYear) {
-  const age = currentYear - birthYear;
-  return `You are ${age} years old`;
+// function calcAge(currentYear, birthYear) {
+//   const age = currentYear - birthYear;
+//   return `You are ${age} years old`;
+// }
+
+// const years = [1990, 1847, 2005, 1987, 1614]
+
+// const age1 = calcAge(2096, years[0])
+// const age2 = calcAge(2037, years[years.length - 1]);
+// const age3 = calcAge(2025, years[3])
+
+// console.log(age1, age2, age3)
+// console.log(years.length - 1);
+
+const calcTip = (bill) => {
+    let tip;
+    if (bill >= 50 && bill <= 300) {
+      tip = 0.15 * bill;
+    } else {
+      tip = 0.2 * bill;
+    }
+    return tip;
 }
 
-const years = [1990, 1847, 2005, 1987, 1614]
-
-const age1 = calcAge(2096, years[0])
-const age2 = calcAge(2037, years[years.length - 1]);
-const age3 = calcAge(2025, years[3])
-
-console.log(age1, age2, age3)
-console.log(years.length - 1);
+const bills = [125, 555, 44]
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])]
+console.log(tips)
+console.log(calcTip(44))
