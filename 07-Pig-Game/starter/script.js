@@ -74,6 +74,7 @@ hold.addEventListener('click', function () {
 });
 
 newGame.addEventListener('click', function () {
+    playing = true
     document
       .querySelector(`.player--${activePlayer}`)
       .classList.remove('player--winner');
