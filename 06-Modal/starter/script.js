@@ -24,3 +24,11 @@ for (let i = 0; i < btnModal.length; i++){
 
 btnClose.addEventListener('click', closeModal)
 overLay.addEventListener('click', closeModal)
+
+document.addEventListener('keypress', function (e) {
+    
+    if (e.key === 'Enter' && !modal.classList.contains('hiiden')) {
+        e.preventDefault()
+        closeModal()
+    }
+})
