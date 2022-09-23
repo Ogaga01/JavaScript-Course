@@ -84,6 +84,9 @@ console.log(gk, fieldPlayers)
 const allPlayers = [...player1, ...player2]
 console.log(allPlayers)
 
+const player1Final = [...player1, 'Thiago', 'Coutinho', 'Perisic']
+console.log(player1Final)
+
 
 // const menu = [...restaurant.mainMenu, ...restaurant.starterMenu]
 // console.log(menu)
