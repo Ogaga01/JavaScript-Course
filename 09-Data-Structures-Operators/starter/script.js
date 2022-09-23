@@ -87,6 +87,9 @@ console.log(allPlayers)
 const player1Final = [...player1, 'Thiago', 'Coutinho', 'Perisic']
 console.log(player1Final)
 
+const { team1, x: draw, team2 } = game.odds
+console.log(team1, draw, team2)
+
 
 // const menu = [...restaurant.mainMenu, ...restaurant.starterMenu]
 // console.log(menu)
