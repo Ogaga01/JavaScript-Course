@@ -78,6 +78,9 @@ const game = {
 const [player1, player2] = game.players
 console.log(player1, player2) 
 
+const [gk, ...fieldPlayers] = player1
+console.log(gk, fieldPlayers)
+
 
 // const menu = [...restaurant.mainMenu, ...restaurant.starterMenu]
 // console.log(menu)
