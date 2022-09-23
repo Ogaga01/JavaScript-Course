@@ -97,7 +97,9 @@ const { team1, x: draw, team2 } = game.odds
 console.log(team1, draw, team2)
 // Task 6
 game.printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich')
-game.printGoals(game.scored)
+game.printGoals(...game.scored)
+// Task 7
+team1 < team2 && console.log(`Team 1 is most likely to win`)
 
 
 // const menu = [...restaurant.mainMenu, ...restaurant.starterMenu]
