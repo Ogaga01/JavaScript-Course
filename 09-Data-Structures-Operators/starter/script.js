@@ -93,6 +93,12 @@ for (const l of Object.values(game.odds)) {
 sum /= Object.values(game.odds).length;
 console.log(sum)
 
+//Task 3
+for (const [ m, n ] of Object.entries(game.odds)) {
+  const teamStr = m === 'x' ? 'draw' : `victory ${game[m]}`
+  console.log(`Odds of ${teamStr}: ${n}`)
+}
+
 
 // // Task 1
 // const [player1, player2] = game.players
