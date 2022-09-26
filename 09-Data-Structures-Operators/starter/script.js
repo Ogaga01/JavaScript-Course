@@ -80,24 +80,32 @@ const game = {
   },
 };
 
-// Task 1
-for (const [j, k] of game.scored.entries()) {
-  console.log(`Goal ${j + 1}: ${k}`);
-}
+// // Task 1
+// for (const [j, k] of game.scored.entries()) {
+//   console.log(`Goal ${j + 1}: ${k}`);
+// }
 
-// Task 2
-let sum = 0
-for (const l of Object.values(game.odds)) {
-  sum += l
-}
-sum /= Object.values(game.odds).length;
-console.log(sum)
+// // Task 2
+// let sum = 0
+// for (const l of Object.values(game.odds)) {
+//   sum += l
+// }
+// sum /= Object.values(game.odds).length;
+// console.log(sum)
 
-//Task 3
-for (const [ m, n ] of Object.entries(game.odds)) {
-  const teamStr = m === 'x' ? 'draw' : `victory ${game[m]}`
-  console.log(`Odds of ${teamStr}: ${n}`)
-}
+// //Task 3
+// for (const [ m, n ] of Object.entries(game.odds)) {
+//   const teamStr = m === 'x' ? 'draw' : `victory ${game[m]}`
+//   console.log(`Odds of ${teamStr}: ${n}`)
+// }
+// // Bonus
+
+// const scorers = {
+// }
+// for (const player of game.scored) {
+//   scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+// }
+// console.log(scorers)
 
 
 // // Task 1
