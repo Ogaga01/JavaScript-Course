@@ -67,3 +67,7 @@ function book(flightCode, name) {
 
 book.call(arikAir, 625, 'John')
 console.log(arikAir.bookings)
+
+// Bind Method
+const bindAP = book.bind(airPeace)
+bindAP(045, 'Lukewarm Waters')
