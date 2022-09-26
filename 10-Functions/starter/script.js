@@ -32,18 +32,38 @@
 
 // transformString('i am beautiful inside and out', upperFirstWord);
 
-function greeting(greet) {
-    return function (name) {
-        console.log(`${greet} ${name}`)
-    }
+// function greeting(greet) {
+//     return function (name) {
+//         console.log(`${greet} ${name}`)
+//     }
+// }
+
+// greeting('hey')('mama')
+
+// const greeting2 = (greet2) => {
+//     return (name) => {
+//         console.log(`${greet2} ${name}`)
+//     }
+// }
+
+// greeting2('hey')('mama');
+
+const airPeace = {
+    airline: 'Air Peace',
+    iataCode: 'AP',
+    bookings: []
 }
 
-greeting('hey')('mama')
-
-const greeting2 = (greet2) => {
-    return (name) => {
-        console.log(`${greet2} ${name}`)
-    }
+const arikAir = {
+    airline: 'Arik Air',
+    iataCode: 'AA',
+    bookings: []
 }
 
-greeting2('hey')('mama');
+function book(flightCode, name) {
+    console.log(`${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightCode}`)
+    this.bookings.push({flight: `${this.iataCode}${flightCode}`, name})
+}
+
+book.call(arikAir, 625, 'John')
+console.log(arikAir.bookings)
