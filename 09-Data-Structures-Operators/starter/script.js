@@ -171,15 +171,44 @@ const gameEvents = new Map([
 
 // CC 3
 //Task 1
-const events = new Set(gameEvents.values())
+// const events = new Set(gameEvents.values())
 
-console.log(events)
-// Task 2
-gameEvents.delete(64)
-console.log(gameEvents)
-// Task 3
-console.log(`An event happend every ${90 / gameEvents.size} minutes`);
-// Task 4
-for (const [y, z] of gameEvents) {
-  y <= 45 ? console.log(`[First Half]${y}: ${z}`) : console.log(`[Second Half]${y}: ${z}`)
+// console.log(events)
+// // Task 2
+// gameEvents.delete(64)
+// console.log(gameEvents)
+// // Task 3
+// console.log(`An event happend every ${90 / gameEvents.size} minutes`);
+// // Task 4
+// for (const [y, z] of gameEvents) {
+//   y <= 45 ? console.log(`[First Half]${y}: ${z}`) : console.log(`[Second Half]${y}: ${z}`)
+// }
+
+// const boy = "The boy is good"
+// console.log(boy.slice(0, boy.indexOf(' ')))
+
+// const announcement = "All passengers come to boarding door 23. Boarding door 23"
+
+// console.log(announcement.replace(/door/g, 'gate'))
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+document.body.append(document.createElement('h2'));
+
+const button = document.querySelector('button')
+const text = document.querySelector('textarea')
+const head = document.querySelector('h2')
+
+function newText(text1) {
+  text1 = text.value
+  let newText1 = ''
+  if (text1 === '') {
+    console.log('No text entered')
+  } else if (text1.includes('_')) {
+    const [first, second] = text1.toLowerCase().trim().split('_')
+    newText1 = first + second.replace(second[0], second[0].toUpperCase())
+  }
+   console.log(newText1)
 }
+
+button.addEventListener('click', newText)
