@@ -80,12 +80,18 @@ const game = {
   },
 };
 
-
-
+// Task 1
 for (const [j, k] of game.scored.entries()) {
   console.log(`Goal ${j + 1}: ${k}`);
 }
 
+// Task 2
+let sum = 0
+for (const l of Object.values(game.odds)) {
+  sum += l
+}
+sum /= Object.values(game.odds).length;
+console.log(sum)
 
 
 // // Task 1
