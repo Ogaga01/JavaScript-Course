@@ -179,3 +179,7 @@ gameEvents.delete(64)
 console.log(gameEvents)
 // Task 3
 console.log(`An event happend every ${90 / gameEvents.size} minutes`);
+// Task 4
+for (const [y, z] of gameEvents) {
+  y <= 45 ? console.log(`[First Half]${y}: ${z}`) : console.log(`[Second Half]${y}: ${z}`)
+}
