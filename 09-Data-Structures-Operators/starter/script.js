@@ -174,3 +174,6 @@ const gameEvents = new Map([
 const events = new Set(gameEvents.values())
 
 console.log(events)
+
+gameEvents.delete(64)
+console.log(gameEvents)
