@@ -82,18 +82,24 @@ const game = {
 
 
 
-// Task 1
-const [player1, player2] = game.players
-console.log(player1, player2) 
-//Task 2
-const [gk, ...fieldPlayers] = player1
-console.log(gk, fieldPlayers)
-// Task 3
-const allPlayers = [...player1, ...player2]
-
-for (let i of allPlayers.entries()) {
-  console.log(i[0])
+for (const [j, k] of game.scored.entries()) {
+  console.log(`Goal ${j + 1}: ${k}`);
 }
+
+
+
+// // Task 1
+// const [player1, player2] = game.players
+// console.log(player1, player2) 
+// //Task 2
+// const [gk, ...fieldPlayers] = player1
+// console.log(gk, fieldPlayers)
+// // Task 3
+// const allPlayers = [...player1, ...player2]
+
+// for (let i of allPlayers.entries()) {
+//   console.log(i[0])
+// }
 // console.log(allPlayers)
 // // Task 4
 // const player1Final = [...player1, 'Thiago', 'Coutinho', 'Perisic']
