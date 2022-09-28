@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 // const bookings = []
 
@@ -14,11 +14,12 @@
 //     bookings.push(booking)
 // }
 
-// createBooking('LA22b', 58, 260000)
+// createBooking('LA22B', 58, 260000)
 
 // const oneWord = function (str) {
 //     return str.replace(/ /g, '').toLowerCase();
 // }
+// console.log(oneWord('I am wonderfully made'));
 
 // const upperFirstWord = function (str) {
 //     const [first, ...others] = str.split(' ')
@@ -71,3 +72,15 @@ console.log(arikAir.bookings)
 // Bind Method
 const bindAP = book.bind(airPeace)
 bindAP(045, 'Lukewarm Waters')
+
+airPeace.planes = 300
+arikAir.planes = 50
+
+function buyPlanes() {
+    this.planes++
+    console.log(this)
+    console.log(this.planes)
+}
+
+document.querySelector('.buy').addEventListener('click', buyPlanes.bind(arikAir))
+
