@@ -115,3 +115,15 @@ movements.forEach((move, i) => {
 //   }
 // })
 
+function createUserName(accs) {
+  accs.forEach((acc) => {
+    acc.userName = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map((name) => {
+        name[0]
+      })
+      .join('')
+  })
+}
+
