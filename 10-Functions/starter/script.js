@@ -129,3 +129,7 @@
 
 // document.querySelector('.poll').addEventListener('click', pollFunc)
 
+(function() {
+    console.log('God is the Greatest')
+})()
+
