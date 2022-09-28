@@ -88,13 +88,11 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
 /////////////////////////////////////////////////
-movements.forEach((move, i) => {
-  move > 0 ? console.log(`Move ${i + 1}: You deposited ${move}$ to the bank`) :
-    console.log(`Move ${i + 1}: You withdrew ${Math.abs(move)}$ from the bank`)
-})
+// movements.forEach((move, i) => {
+//   move > 0 ? console.log(`Move ${i + 1}: You deposited ${move}$ to the bank`) :
+//     console.log(`Move ${i + 1}: You withdrew ${Math.abs(move)}$ from the bank`)
+// })
 //////////////
 // Coding Challenge
 // function checkDogs(dogsJulia, dogsKate) {
@@ -115,15 +113,27 @@ movements.forEach((move, i) => {
 //   }
 // })
 
-function createUserName(accs) {
-  accs.forEach((acc) => {
-    acc.userName = acc.owner
-      .toLowerCase()
-      .split(' ')
-      .map((name) => {
-        name[0]
-      })
-      .join('')
-  })
-}
+// function createUserName(accs) {
+//   accs.forEach((acc) => {
+//     acc.userName = acc.owner
+//       .toLowerCase()
+//       .split(' ')
+//       .map((name) => {
+//         name[0]
+//       })
+//       .join('')
+//   })
+// }
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const deposits = movements.filter((move) => {
+  return move > 0
+})
+console.log(deposits)
+const withdrawals = movements.filter((move) => {
+  return move < 0
+})
+console.log(withdrawals)
+
+
 
