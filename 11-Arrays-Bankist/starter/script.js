@@ -95,3 +95,15 @@ movements.forEach((move, i) => {
   move > 0 ? console.log(`Move ${i + 1}: You deposited ${move}$ to the bank`) :
     console.log(`Move ${i + 1}: You withdrew ${Math.abs(move)}$ from the bank`)
 })
+//////////////
+// Coding Challenge
+function checkDogs(dogsJulia, dogsKate) {
+  const juliaDogs = dogsJulia.slice(1, -2)
+  const comboDogs = [...juliaDogs, ...dogsKate]
+  comboDogs.forEach((dog, i) => {
+    dog >= 3 ? console.log(`Dog number ${i + 1} is an adult, and is ${dog} years old`) :
+    console.log(`Dog number ${i + 1} is still a puppy🐶`)
+  })
+}
+checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+
