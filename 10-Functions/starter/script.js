@@ -84,3 +84,12 @@ function buyPlanes() {
 
 document.querySelector('.buy').addEventListener('click', buyPlanes.bind(arikAir))
 
+function addTax(rate) {
+    return function (value) {
+        value += rate * value
+        return value
+    }
+}
+
+console.log(addTax(.20)(500))
+
