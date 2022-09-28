@@ -75,6 +75,10 @@ const displayMovements = function (movement) {
     `;
     containerMovements.insertAdjacentHTML("afterbegin", html)
   })
+  const balance = movement.reduce((acc, move) => {
+    return acc + move
+  })
+  labelBalance.textContent = `${balance}€`;
 }
 displayMovements(account2.movements)
 
@@ -126,14 +130,19 @@ const currencies = new Map([
 // }
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-const deposits = movements.filter((move) => {
-  return move > 0
-})
-console.log(deposits)
-const withdrawals = movements.filter((move) => {
-  return move < 0
-})
-console.log(withdrawals)
+// const deposits = movements.filter((move) => {
+//   return move > 0
+// })
+// console.log(deposits)
+// const withdrawals = movements.filter((move) => {
+//   return move < 0
+// })
+// console.log(withdrawals)
+
+// const balance = movements.reduce((acc, move, i, arr) => {
+//   return acc + move
+// })
+// console.log(balance)
 
 
 
