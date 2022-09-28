@@ -74,3 +74,7 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+movements.forEach((move, i) => {
+  move > 0 ? console.log(`Move ${i + 1}: You deposited ${move}$ to the bank`) :
+    console.log(`Move ${i + 1}: You withdrew ${Math.abs(move)}$ from the bank`)
+})
