@@ -27,7 +27,7 @@ overLay.addEventListener('click', closeModal)
 
 document.addEventListener('keypress', function (e) {
     
-    if (e.key === 'Enter' && !modal.classList.contains('hiiden')) {
+    if (e.key === 'Enter' && !modal.classList.contains('hidden')) {
         e.preventDefault()
         closeModal()
     }
