@@ -129,7 +129,28 @@
 
 // document.querySelector('.poll').addEventListener('click', pollFunc)
 
-(function() {
-    console.log('God is the Greatest')
-})()
+// (function() {
+//     console.log('God is the Greatest')
+// })()
+
+function calcInterest(rate) {
+    return function (value) {
+        console.log(rate * value)
+    }
+}
+const ten = calcInterest(.1)
+ten(200)
+
+function checkPosition() {
+    let position = 0
+    return function () {
+        position++
+        console.log(position)
+    }
+}
+
+const post = checkPosition()
+post()
+post()
+post()
 
