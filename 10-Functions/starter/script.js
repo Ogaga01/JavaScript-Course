@@ -133,24 +133,33 @@
 //     console.log('God is the Greatest')
 // })()
 
-function calcInterest(rate) {
-    return function (value) {
-        console.log(rate * value)
-    }
-}
-const ten = calcInterest(.1)
-ten(200)
+// function calcInterest(rate) {
+//     return function (value) {
+//         console.log(rate * value)
+//     }
+// }
+// const ten = calcInterest(.1)
+// ten(200)
 
-function checkPosition() {
-    let position = 0
-    return function () {
-        position++
-        console.log(position)
-    }
-}
+// function checkPosition() {
+//     let position = 0
+//     return function () {
+//         position++
+//         console.log(position)
+//     }
+// }
 
-const post = checkPosition()
-post()
-post()
-post()
+// const post = checkPosition()
+// post()
+// post()
+// post()
+
+(function () {
+  const header = document.querySelector('h1');
+    header.style.color = 'red';
+    
+    document.querySelector('body').addEventListener('click', function () {
+        header.style.color = 'blue'
+    })
+})();
 
