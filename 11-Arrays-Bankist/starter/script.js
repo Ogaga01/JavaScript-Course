@@ -69,8 +69,10 @@ const displayMovements = function (movement) {
 
     const html = `
       <div class="movements__row">
-        <div class="movements__type movements__type--${type}">${index + 1} ${type}</div>
-        <div class="movements__value">${move}</div>
+        <div class="movements__type movements__type--${type}">${
+      index + 1
+    } ${type}</div>
+        <div class="movements__value">${move}€</div>
       </div>
     `;
     containerMovements.insertAdjacentHTML("afterbegin", html)
@@ -79,6 +81,31 @@ const displayMovements = function (movement) {
     return acc + move
   })
   labelBalance.textContent = `${balance}€`;
+
+  const calcIncomeSummary = movement.filter((move) => {
+    return move > 0
+  }).reduce((acc, move) => {
+    return acc + move
+  }, 0)
+  labelSumIn.textContent = `${calcIncomeSummary}€`;
+
+  const calcWithdrawalSummary = Math.abs(movement.filter((move) => {
+    return move < 0
+  }).reduce((acc, move) => {
+    return acc + move
+  }, 0))
+  labelSumOut.textContent = `${calcWithdrawalSummary}€`;
+
+  const interest = movement.filter((move) => {
+    return move > 0
+  }).map((move) => {
+    return (move * 1.2)/100
+  }).filter((move) => {
+    return move > 1
+  }).reduce((acc, move) => {
+    return acc + move
+  }, 0)
+  labelSumInterest.textContent = `${interest}€`;
 }
 displayMovements(account2.movements)
 
@@ -144,15 +171,34 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // })
 // console.log(balance)
 
-const max = movements.reduce((acc, move) => {
-  if (acc > move) {
-    return acc
-  } else {
-    return move
-  }
-}, movements[0])
+// const max = movements.reduce((acc, move) => {
+//   if (acc > move) {
+//     return acc
+//   } else {
+//     return move
+//   }
+// }, movements[0])
 
-console.log(max)
+// console.log(max)
 
+// Coding Challenge
+
+function calcAverageHumanAge(arr) {
+  const humanAge = arr
+    .map(dogAge => {
+      if (dogAge <= 2) {
+        return 2 * dogAge;
+      } else {
+        return 16 + dogAge * 4;
+      }
+    })
+    .filter(age => {
+      return age >= 18;
+    })
+    .reduce((acc, dog, i, ar) => acc + dog / ar.length, 0);
+  return humanAge
+}
+console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
+console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
 
 
