@@ -209,6 +209,39 @@ btnTransfer.addEventListener('click', (e) => {
   inputTransferTo.value = '';
 })
 
+btnLoan.addEventListener('click', e => {
+  e.preventDefault();
+  const amount = Number(inputLoanAmount.value);
+  if (amount > 0 &&
+    currentUser.movements.some(move => {
+      return move * 0.1;
+    })
+  ) {
+    currentUser.movements.push(amount);
+  }
+  displaySummary(currentUser);
+  displayBalance(currentUser);
+  displayMovements(currentUser.movements);
+});
+
+btnClose.addEventListener('click', (e) => {
+  e.preventDefault()
+  const user = inputCloseUsername.value
+  const pin = inputClosePin.value
+  
+  if (user === currentUser.userName && Number(pin) === currentUser.pin) {
+    const currentIndex = accounts.findIndex(acc => {
+      return acc.userName === currentUser.userName;
+    });
+    console.log(currentIndex);
+    accounts.splice(currentIndex, 1)
+    containerApp.classList.remove('show');
+    console.log(accounts)
+  }
+  inputCloseUsername.value = '';
+  inputClosePin.value = '';
+})
+
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -244,6 +277,12 @@ const currencies = new Map([
 //     return `Move ${i + 1}: You withdrew ${Math.abs(move)}$ from the bank`
 //   }
 // })
+
+const allMovemoents = accounts.map((acc) => {
+  return acc.movements
+})
+
+console.log(allMovemoents)
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // const deposits = movements.filter((move) => {
@@ -287,4 +326,17 @@ function calcAverageHumanAge(arr) {
     .reduce((acc, dog, i, ar) => acc + dog / ar.length, 0);
   return humanAge
 }
-//  
+//
+
+
+const z = Array.from({ length: 100 }, () => {
+  return Math.trunc(Math.random()*6 + 1)
+})
+console.log(z)
+const count = {}
+
+z.forEach((item) => {
+  count[item] = (count[item] || 0) + 1
+})
+
+console.log(count)
