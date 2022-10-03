@@ -120,6 +120,13 @@ function displaySummary(acc) {
   labelSumInterest.textContent = `${interest}€`;
 }
 
+const displayBalance = (acc) => {
+  const balance = acc.movements.reduce((acc, move) => {
+    return acc + move;
+  });
+  labelBalance.textContent = `${balance}€`;
+};
+
 const displayMovements = function (movement) {
   containerMovements.innerHTML = '';
 
@@ -136,10 +143,6 @@ const displayMovements = function (movement) {
     `;
     containerMovements.insertAdjacentHTML('afterbegin', html);
   });
-  const balance = movement.reduce((acc, move) => {
-    return acc + move;
-  });
-  labelBalance.textContent = `${balance}€`;
 };
 
 let currentUser;
@@ -175,6 +178,7 @@ btnLogin.addEventListener('click', e => {
   userName = '';
   pin = '';
   displaySummary(currentUser)
+  displayBalance(currentUser);
 });
 
 /////////////////////////////////////////////////
