@@ -121,10 +121,10 @@ function displaySummary(acc) {
 }
 
 const displayBalance = (acc) => {
-  const balance = acc.movements.reduce((acc, move) => {
+  acc.balance = acc.movements.reduce((acc, move) => {
     return acc + move;
   });
-  labelBalance.textContent = `${balance}€`;
+  labelBalance.textContent = `${acc.balance}€`;
 };
 
 const displayMovements = function (movement) {
@@ -172,14 +172,43 @@ btnLogin.addEventListener('click', e => {
         }
       })
     displayMovements(currentUser.movements);
+    containerApp.classList.add('show');
+    labelWelcome.textContent = `Welcome User ${
+      currentUser.owner.split(' ')[0]
+      }`;
+    displaySummary(currentUser);
+    displayBalance(currentUser);
   }
-  containerApp.classList.add('show');
-  labelWelcome.textContent = `Welcome User ${currentUser.owner.split(' ')[0]}`;
-  userName = '';
-  pin = '';
-  displaySummary(currentUser)
-  displayBalance(currentUser);
+  inputLoginUsername.value = '';
+  inputLoginPin.value = '';
 });
+
+btnTransfer.addEventListener('click', (e) => {
+  e.preventDefault()
+  const amount = inputTransferAmount.value
+  const recipient = accounts.find((acc) => {
+    return acc.userName === inputTransferTo.value;
+  })
+
+  if (recipient === '' || amount === '') {
+    console.log('Invalid Credentials');
+  } else if (
+    currentUser.balance >= amount &&
+    recipient &&
+    recipient.userName !== currentUser.userName &&
+    amount > 0
+  ) {
+    recipient.movements.push(Number(amount));
+    currentUser.movements.push(-Number(amount));
+  }
+  console.log(currentUser, recipient)
+  displaySummary(currentUser);
+  displayBalance(currentUser);
+  displayMovements(currentUser.movements);
+  inputTransferAmount.value = '';
+  inputTransferTo.value = '';
+})
+
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
