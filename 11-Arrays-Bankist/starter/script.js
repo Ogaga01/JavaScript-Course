@@ -311,32 +311,72 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // Coding Challenge
 
-function calcAverageHumanAge(arr) {
-  const humanAge = arr
-    .map(dogAge => {
-      if (dogAge <= 2) {
-        return 2 * dogAge;
-      } else {
-        return 16 + dogAge * 4;
-      }
-    })
-    .filter(age => {
-      return age >= 18;
-    })
-    .reduce((acc, dog, i, ar) => acc + dog / ar.length, 0);
-  return humanAge
+// function calcAverageHumanAge(arr) {
+//   const humanAge = arr
+//     .map(dogAge => {
+//       if (dogAge <= 2) {
+//         return 2 * dogAge;
+//       } else {
+//         return 16 + dogAge * 4;
+//       }
+//     })
+//     .filter(age => {
+//       return age >= 18;
+//     })
+//     .reduce((acc, dog, i, ar) => acc + dog / ar.length, 0);
+//   return humanAge
+// }
+// //
+
+
+// const z = Array.from({ length: 100 }, () => {
+//   return Math.trunc(Math.random()*6 + 1)
+// })
+// console.log(z)
+// const count = {}
+
+// z.forEach((item) => {
+//   count[item] = (count[item] || 0) + 1
+// })
+
+// console.log(count)
+
+
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] },
+];
+
+const displayFood = (arr) => {
+  arr.forEach((dog) => {
+  dog.recommendedFood = dog.weight ** 0.75 * 28;
+})
 }
-//
 
+displayFood(dogs)
+console.log(dogs)
 
-const z = Array.from({ length: 100 }, () => {
-  return Math.trunc(Math.random()*6 + 1)
+const sarahDog = dogs.find((dog) => {
+  return dog.owners.includes('Sarah')
 })
-console.log(z)
-const count = {}
+if (sarahDog.curFood > sarahDog.recommendedFood) {
+  console.log(`${sarahDog.owners[0]}'s dog eats too much`)
+} else {
+  console,log(`${sarahDog.owners[0]}'s dog eats too little`)
+}
 
-z.forEach((item) => {
-  count[item] = (count[item] || 0) + 1
-})
+const ownersEatTooMuch = dogs.filter((dog) => {
+  return dog.curFood > dog.recommendedFood
+}).map((dog) => {
+  return dog.owners
+}).flat()
+console.log(ownersEatTooMuch)
 
-console.log(count)
+const ownersEatTooLittle = dogs.filter((dog) => {
+  return dog.curFood < dog.recommendedFood
+}).map((dog) => {
+  return dog.owners
+}).flat()
+console.log(ownersEatTooLittle)
