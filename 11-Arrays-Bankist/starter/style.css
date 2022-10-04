@@ -44,7 +44,7 @@ nav {
 }
 
 .login__input {
-  border: none;
+  /* border: none; */
   padding: 0.5rem 2rem;
   font-size: 1.6rem;
   font-family: inherit;
