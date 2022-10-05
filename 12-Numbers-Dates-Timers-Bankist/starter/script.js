@@ -272,3 +272,11 @@ const day = now.getDate();
 const hour = now.getHours();
 const minutes = now.getMinutes();
 const displayDate = `${day}/${month}/${year} ${hour}:${minutes}`;
+
+const future = new Date(2037, 3, 14)
+console.log(future)
+const calcDaysPassed = (date1, date2) => {
+  return Math.abs((date1 - date2)/(1000*60*60*24))
+}
+const future2 = new Date(2037, 3, 24)
+console.log(calcDaysPassed(future, future2))
