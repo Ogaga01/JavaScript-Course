@@ -31,3 +31,19 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
+const header = document.querySelector('.header')
+
+const message = document.createElement('div')
+message.classList.add('cookie-message')
+message.innerHTML = `We use cookies to improve app functionalities. 
+<button class='btn btn--close-cookie'>
+Got it!
+</button>`;
+header.prepend(message)
+const btnCloseCookie = document.querySelector('.btn--close-cookie')
+btnCloseCookie.addEventListener('click', () => {
+  // header.removeChild(message)
+  // message.remove()
+  message.parentElement.removeChild(message)
+})
