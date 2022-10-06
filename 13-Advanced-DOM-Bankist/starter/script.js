@@ -68,22 +68,22 @@ btnScrollTo.addEventListener('click', () => {
   section1.scrollIntoView({behavior: "smooth"})
 })
 
-navLink.forEach((link) => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault()
-    const id = e.target.getAttribute('href')
-    document.querySelector(id).scrollIntoView({behavior: 'smooth'})
-  })
-})
-
-// navLinks.addEventListener('click', (e) => {
-//   e.preventDefault()
-  
-//   if (e.target.classList.contains('nav__link')) {
+// navLink.forEach((link) => {
+//   link.addEventListener('click', (e) => {
+//     e.preventDefault()
 //     const id = e.target.getAttribute('href')
 //     document.querySelector(id).scrollIntoView({behavior: 'smooth'})
-//   }
+//   })
 // })
+
+navLinks.addEventListener('click', (e) => {
+  e.preventDefault()
+  
+  if (e.target.classList.contains('nav__link')) {
+    const id = e.target.getAttribute('href')
+    document.querySelector(id).scrollIntoView({behavior: 'smooth'})
+  }
+})
 
 tabContainer.addEventListener('click', (e) => {
   e.preventDefault()
