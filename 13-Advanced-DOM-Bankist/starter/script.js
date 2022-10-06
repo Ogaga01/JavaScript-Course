@@ -47,3 +47,18 @@ btnCloseCookie.addEventListener('click', () => {
   // message.remove()
   message.parentElement.removeChild(message)
 })
+
+const btnScrollTo = document.querySelector('.btn--scroll-to')
+const section1 = document.querySelector('#section--1')
+
+btnScrollTo.addEventListener('click', () => {
+  const s1cords = section1.getBoundingClientRect()
+  // console.log(s1cords)
+  // window.scrollTo({
+  //   left: s1cords.left + window.pageXOffset,
+  //   top: s1cords + window.pageYOffset,
+  //   behavior: "smooth"
+  // })
+
+  section1.scrollIntoView({behavior: "smooth"})
+})
