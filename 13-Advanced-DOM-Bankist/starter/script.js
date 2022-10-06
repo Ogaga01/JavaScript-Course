@@ -10,6 +10,9 @@ const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
 const navLink = document.querySelectorAll('.nav__link')
 const navLinks = document.querySelector('.nav__links')
+const operationsTab = document.querySelectorAll('.operations__tab')
+const tabContainer = document.querySelector('.operations__tab-container')
+const operationsContent = document.querySelectorAll('.operations__content')
 
 ///////////////////////////////////////
 // Modal window
@@ -80,3 +83,22 @@ navLink.forEach((link) => {
 //     document.querySelector(id).scrollIntoView({behavior: 'smooth'})
 //   }
 // })
+
+tabContainer.addEventListener('click', (e) => {
+  e.preventDefault()
+  const id = e.target.closest('.operations__tab')
+  
+  if (!id) return
+
+  operationsTab.forEach((tab) => {
+    tab.classList.remove('operations__tab--active');
+  })
+  id.classList.add('operations__tab--active');
+
+  operationsContent.forEach((content) => {
+    content.classList.remove('operations__content--active');
+  })
+  document
+    .querySelector(`.operations__content--${id.dataset.tab}`)
+    .classList.add('operations__content--active');
+})
