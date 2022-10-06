@@ -13,6 +13,7 @@ const navLinks = document.querySelector('.nav__links')
 const operationsTab = document.querySelectorAll('.operations__tab')
 const tabContainer = document.querySelector('.operations__tab-container')
 const operationsContent = document.querySelectorAll('.operations__content')
+const nav = document.querySelector('.nav')
 
 ///////////////////////////////////////
 // Modal window
@@ -102,3 +103,23 @@ tabContainer.addEventListener('click', (e) => {
     .querySelector(`.operations__content--${id.dataset.tab}`)
     .classList.add('operations__content--active');
 })
+
+function handlenav(e) {
+  e.preventDefault()
+
+   if (e.target.classList.contains('nav__link')) {
+     const link = e.target;
+     const siblings = link.closest('.nav').querySelectorAll('.nav__link');
+     const logo = link.closest('.nav').querySelector('img');
+    
+     siblings.forEach(sibling => {
+       if (sibling !== link) {
+         sibling.classList.toggle('opaque');
+       }
+     });
+     logo.classList.toggle('opaque');
+   }
+}
+
+nav.addEventListener('mouseover', handlenav)
+nav.addEventListener('mouseout', handlenav);
