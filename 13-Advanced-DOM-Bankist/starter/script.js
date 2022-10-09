@@ -16,6 +16,10 @@ const operationsContent = document.querySelectorAll('.operations__content')
 const nav = document.querySelector('.nav')
 const sections = document.querySelectorAll('.section')
 const imgTargets = document.querySelectorAll('img[data-src]')
+const slides = document.querySelectorAll('.slide')
+const slider = document.querySelector('.slider')
+const btnLeft = document.querySelector('.slider__btn--left')
+const btnRight = document.querySelector('.slider__btn--right');
 
 ///////////////////////////////////////
 // Modal window
@@ -187,3 +191,34 @@ const imgObserver = new IntersectionObserver(loadImg, {
 imgTargets.forEach((img) => {
   imgObserver.observe(img)
 })
+
+let currentSlide = 0
+const maxSlide = slides.length
+
+const goToSlide = (slide) => {
+  slides.forEach((s, i) => {
+    s.style.transform = `translateX(${100 * (i - slide)}%)`
+  })
+}
+goToSlide(0)
+
+const nextSlide = () => {
+  if (currentSlide === maxSlide - 1) {
+    currentSlide = 0
+  } else {
+    currentSlide++
+  }
+  goToSlide(currentSlide)
+}
+
+const prevSlide = () => {
+  if (currentSlide === 0) {
+    currentSlide = maxSlide - 1;
+  } else {
+    currentSlide--;
+  }
+  goToSlide(currentSlide);
+};
+
+btnLeft.addEventListener('click', prevSlide)
+btnRight.addEventListener('click', nextSlide)
