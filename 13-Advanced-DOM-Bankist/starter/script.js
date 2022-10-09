@@ -14,6 +14,8 @@ const operationsTab = document.querySelectorAll('.operations__tab')
 const tabContainer = document.querySelector('.operations__tab-container')
 const operationsContent = document.querySelectorAll('.operations__content')
 const nav = document.querySelector('.nav')
+const sections = document.querySelectorAll('.section')
+const imgTargets = document.querySelectorAll('img[data-src]')
 
 ///////////////////////////////////////
 // Modal window
@@ -143,3 +145,22 @@ const headerObserver = new IntersectionObserver(stickyNav, {
 })
 
 headerObserver.observe(header)
+
+const sectionReveal = (entries, observer) => {
+  const [entry] = entries
+
+  if(!entry.isIntersecting) return
+
+  entry.target.classList.remove('section--hidden')
+  observer.unobserve(entry.target)
+}
+
+const sectionObserver = new IntersectionObserver(sectionReveal, {
+  root: null,
+  threshold: 0.15
+})
+
+sections.forEach(section => {
+  section.classList.add('section--hidden');
+  sectionObserver.observe(section);
+});
