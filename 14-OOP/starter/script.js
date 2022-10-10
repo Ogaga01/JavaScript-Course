@@ -137,3 +137,11 @@ tesla.accelerate()
 tesla.brake()
 tesla.chargeBattery(90)
 console.log(tesla)
+
+// ES6 classes inheritance
+class StudentCl extends PersonCl {
+    constructor(fullname, birthyear, course) {
+        super(fullname, birthyear)
+        this.course = course
+    }
+}
