@@ -66,6 +66,11 @@ class PersonCl {
     greet() {
         console.log(`hey ${this.fullname}`)
     }
+
+    //Static methods
+    static hey() {
+        console.log('Hey There 👋')
+    }
 }
 
 const debs = new PersonCl('Deborah Asein', 1997)
