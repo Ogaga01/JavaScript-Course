@@ -17,6 +17,7 @@ Person.prototype.calcAge = function () {
 
 console.log(gee.calcAge(), nick.calcAge)
 
+// Coding Challenge 1
 const Car = function (make, speed) {
     this.make = make
     this.speed = speed
@@ -38,3 +39,35 @@ camaro.brake()
 
 const car1 = new Car('BMW', 120)
 const car2 = new Car('Mercedes', 95)
+
+class PersonCl {
+    constructor(fullname, birthyear) {
+        this.fullname = fullname
+        this.birthyear = birthyear
+    }
+
+    calcAge() {
+        const currentYear = new Date().getFullYear()
+        return currentYear - this.birthyear
+    }
+
+    set fullname(name) {
+        if (name.includes(' ')) {
+            this._fullname = name;
+        } else {
+            alert('input your first and last name')
+        }
+    }
+
+    get fullname() {
+        return this._fullname
+    }
+
+    greet() {
+        console.log(`hey ${this.fullname}`)
+    }
+}
+
+const debs = new PersonCl('Deborah Asein', 1997)
+console.log(debs)
+debs.greet()
