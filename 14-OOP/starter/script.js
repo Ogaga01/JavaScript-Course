@@ -183,3 +183,35 @@ class Account {
 const acc1 = new Account('Jon Jones', 'Dols', '3614')
 acc1.deposit(500).deposit(3000).withdrawal(2500).requestLoan(90000)
 console.log(acc1)
+
+class EVCl extends CarCl {
+    #charge;
+    
+  constructor(make, speed, charge) {
+    super(make, speed);
+    this.#charge = charge
+  }
+
+  accelerate() {
+    this.speed += 20;
+    this.#charge -= 1;
+    console.log(
+      `${this.make} going at ${this.speed}Km/h with a charge of ${this.#charge}%`
+      );
+      return this
+  };
+
+  brake() {
+    this.speed -= 5;
+    return this;
+  }
+
+  chargeBattery(chargeTo) {
+    this.#charge = chargeTo;
+    return this;
+  }
+}
+
+const rivian = new EVCl('Rivian', 120, 23)
+rivian.accelerate().chargeBattery(90).brake()
+console.log(rivian)
