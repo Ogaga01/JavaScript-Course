@@ -145,3 +145,41 @@ class StudentCl extends PersonCl {
         this.course = course
     }
 }
+
+class Account {
+  locale = navigator.language;
+  #movements = [];
+  #pin;
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.#pin = pin;
+    //this.movements = []
+    //this.locale = navigator.language
+  }
+
+  deposit(val) {
+      this.#movements.push(val);
+      return this
+  }
+
+  withdrawal(val) {
+      this.#movements.push(-val);
+      return this
+  }
+
+  requestLoan(val) {
+    if (this.#approveloan(val)) {
+      this.deposit(val);
+        console.log(`loan approved`);
+        return this
+    }
+  }
+
+  #approveloan(val) {
+    return true;
+  }
+}
+const acc1 = new Account('Jon Jones', 'Dols', '3614')
+acc1.deposit(500).deposit(3000).withdrawal(2500).requestLoan(90000)
+console.log(acc1)
