@@ -108,3 +108,13 @@ console.log(ford.accelerate());
 ford.speedUS = 50
 console.log(ford)
 
+// Inheritance
+const Student = function (firstname, lastname, birthyear, course) {
+    Person.call(this, firstname, lastname, birthyear)
+    this.course = course
+}
+Student.prototype.constructor = Student
+Student.prototype = Object.create(Person.prototype)
+const mike = new Student('Mike', 'Scott', 2007, 'Geography')
+console.log(mike.calcAge());
+
