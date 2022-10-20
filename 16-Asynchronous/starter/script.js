@@ -79,5 +79,3 @@ const getCountryData = (country) => {
 
 getCountryData('nigeria')
 getCountryData('uae')
-getCountryData('usa')
-getCountryData('china')
