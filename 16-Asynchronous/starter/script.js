@@ -16,20 +16,20 @@ const countriesContainer = document.querySelector('.countries');
 //         const [data] = JSON.parse(request.responseText)
 //         // console.log(data)
 
-    //     const html = `
-    //     <article class="country">
-    //       <img class="country__img" src="${data.flags.svg}" />
-    //       <div class="country__data">
-    //         <h3 class="country__name">${data.name}</h3>
-    //         <h4 class="country__region">${data.region}</h4>
-    //         <p class="country__row"><span>👫</span>${(+data.population / 1000000).toFixed(1)}M people</p>
-    //         <p class="country__row"><span>🗣️</span>${data.languages[0].name}</p>
-    //         <p class="country__row"><span>💰</span>${data.currencies[0].name} ${data.currencies[0].symbol}</p>
-    //       </div>
-    //     </article>
-    // `;
-    //     countriesContainer.insertAdjacentHTML('beforeend', html)
-    //     countriesContainer.style.opacity = 1
+//     const html = `
+//     <article class="country">
+//       <img class="country__img" src="${data.flags.svg}" />
+//       <div class="country__data">
+//         <h3 class="country__name">${data.name}</h3>
+//         <h4 class="country__region">${data.region}</h4>
+//         <p class="country__row"><span>👫</span>${(+data.population / 1000000).toFixed(1)}M people</p>
+//         <p class="country__row"><span>🗣️</span>${data.languages[0].name}</p>
+//         <p class="country__row"><span>💰</span>${data.currencies[0].name} ${data.currencies[0].symbol}</p>
+//       </div>
+//     </article>
+// `;
+//     countriesContainer.insertAdjacentHTML('beforeend', html)
+//     countriesContainer.style.opacity = 1
 //     })
 // }
 
@@ -39,7 +39,7 @@ const countriesContainer = document.querySelector('.countries');
 // getCountryData('australia')
 
 const renderCountry = (data, classname = '') => {
-            const html = `
+  const html = `
         <article class="country ${classname}">
           <img class="country__img" src="${data.flag}" />
           <div class="country__data">
@@ -48,34 +48,66 @@ const renderCountry = (data, classname = '') => {
             <p class="country__row"><span>👫</span>${(
               +data.population / 1000000
             ).toFixed(1)}M people</p>
-            <p class="country__row"><span>🗣️</span>${data.languages?.[0].name}</p>
-            <p class="country__row"><span>💰</span>${data.currencies?.[0].name} ${
-              data.currencies?.[0].symbol
+            <p class="country__row"><span>🗣️</span>${
+              data.languages?.[0].name
             }</p>
+            <p class="country__row"><span>💰</span>${
+              data.currencies?.[0].name
+            } ${data.currencies?.[0].symbol}</p>
           </div>
         </article>
     `;
-            countriesContainer.insertAdjacentHTML('beforeend', html);
-            countriesContainer.style.opacity = 1;
-            
-}
+  countriesContainer.insertAdjacentHTML('beforeend', html);
+  countriesContainer.style.opacity = 1;
+};
 
-const getCountryData = (country) => {
-    fetch(`https://restcountries.com/v2/name/${country}`).then((response) => {
-        return response.json()
-    }).then((data) => {
-        const [country] = data
-        renderCountry(country)
+const getCountryData = country => {
+  fetch(`https://restcountries.com/v2/name/${country}`)
+    .then(response => {
+        if (!response.ok)throw new Error(`Country not found ${response.status}`)
+      return response.json();
+    })
+    .then(data => {
+      const [country] = data;
+      renderCountry(country);
 
-        const neighbour = country.borders?.[0]
-        return fetch(`https://restcountries.com/v2/alpha/${neighbour}`);
-        
-    }).then((response) => {
-        return response.json()
-    }).then((data2) => {
-        renderCountry(data2, 'neighbour')
+        const neighbour = country.borders?.[0];
+        if (!neighbour) throw new Error(`No Neighbour found`)
+      return fetch(`https://restcountries.com/v2/alpha/${neighbour}`);
+    })
+    .then(response => {
+      return response.json();
+    })
+    .then(data2 => {
+      renderCountry(data2, 'neighbour');
+    }).catch((err) => {
+        const errMessage = `Something went wrong. ${err.message}`;
+        countriesContainer.insertAdjacentText('beforeend', errMessage)
+    }).finally(() => {
+        countriesContainer.style.opacity = 1;
     });
-}
+};
 
-getCountryData('nigeria')
-getCountryData('uae')
+btn.addEventListener('click', () => {
+    countriesContainer.innerHTML = ''
+    getCountryData('nigeria');
+    getCountryData('australia')
+})
+// getCountryData('hgkj');
+
+// fetch('https://restcountries.com/v3.1/all')
+//   .then(response => {
+//     return response.json();
+//   })
+//   .then(data => {
+//     console.log(data);
+//     // array.foreach to work with it
+//   });
+
+// fetch('https://api.tvmaze.com/shows')
+//   .then(response => {
+//     return response.json();
+//   })
+//   .then(data => {
+//     console.log(data);
+//   });
