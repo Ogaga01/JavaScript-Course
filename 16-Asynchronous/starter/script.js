@@ -144,6 +144,9 @@ const whereAmI = (lng, lat) => {
 whereAmI(52.508, 13.381)
 whereAmI(-33.933, 18.474);
 whereAmI(19.037, 72.873);
+latitude: 6.4692753;
+longitude: 3.6521948;
+// whereAmI(6.460, 3.652)
 
 // fetch(`https://restcountries.com/v2/name/${country}`)
 //     .then(response => {
@@ -153,3 +156,10 @@ whereAmI(19.037, 72.873);
 //     .then(data => {
 //       const [country] = data;
 //       renderCountry(country);}
+
+navigator.geolocation.getCurrentPosition((position) => {
+  const { latitude, longitude } = (position.coords)
+  whereAmI(latitude, longitude)
+}, () => {
+  throw new Error(`Could not get position`)
+})
