@@ -164,9 +164,53 @@ const renderCountry = (data, classname = '') => {
 //   throw new Error(`Could not get position`)
 // })
 
-const whereAmI = async (country) => {
-  const res = await fetch(`https://restcountries.com/v2/name/${country}`);
-  const data = await res.json()
-  renderCountry(data[0])
+// const whereAmI = async (country) => {
+//   const res = await fetch(`https://restcountries.com/v2/name/${country}`);
+//   const data = await res.json()
+//   renderCountry(data[0])
+// }
+// whereAmI('nigeria')
+
+const getPosition = () => {
+  return new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(resolve, reject)
+  })
 }
-whereAmI('nigeria')
+
+const whereAmI = async () => {
+  try {
+    const pos = await getPosition()
+  const { latitude: lat, longitude: lng } = pos.coords
+    const res = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+    if (!res.ok) throw new Error(`Couldn't get City`)
+  const data = await res.json()
+    const data2 = await fetch(`https://restcountries.com/v2/name/${data.country}`);
+    if(!data2.ok) throw new Error(`Couldn't get Country`)
+  const res2 = await data2.json()
+  const country = res2[0]
+  renderCountry(country)
+  const neighbour = country.borders?.[1]
+    const res3 = await fetch(`https://restcountries.com/v2/alpha/${neighbour}`)
+      if(!res3.ok)throw new Error(`Couldn't get Country Neighbour`);
+  const data3 = await res3.json()
+    renderCountry(data3, 'neighbour')
+    return `You are in ${data.city}, ${data.country}`
+  } catch (err) {
+     const errMessage = `Something went wrong. ${err.message}`;
+    countriesContainer.insertAdjacentText('beforeend', errMessage);
+    countriesContainer.style.opacity = 1;
+  }
+  
+}
+whereAmI().then((city) => {
+  console.log(city)
+})
+
+// (async function() {
+//     try {
+//       const response = await whereAmI();
+//       console.log(response);
+//     } catch (err) {
+//       console.log(err.message)
+//     }
+// })
